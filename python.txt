@@ -1,0 +1,96 @@
+                                   ┌──────────────────────────────┐
+                                   │        DEEP LEARNING          │
+                                   │   (Neural Networks, many      │
+                                   │           layers)             │
+                                   └───────────────┬──────────────┘
+                                                   │
+                    ┌──────────────────────────────┼───────────────────────────────────┐
+                    │                              │                                   │
+            ┌───────▼───────┐              ┌───────▼────────┐                   ┌───────▼─────────┐
+            │      ANN       │              │       CNN       │                   │  SEQUENCE DATA   │
+            │ (Fully Connected│              │ (Spatial Data) │                   │ (Order matters)  │
+            │   Networks)    │              │   Images, etc. │                   │  Text, Time, etc │
+            └───────┬───────┘              └────────┬────────┘                   └────────┬─────────┘
+                    │                               │                                     │
+   ┌────────────────▼────────────┐         ┌───────▼────────────┐               ┌────────▼─────────────┐
+   │  Structured / Tabular Data   │         │  Feature Learning   │               │   BASIC SEQUENCE     │
+   │  (No space, no time)         │         │  Pixels → Edges     │               │     MODELING         │
+   │  Regression / Classification │         │  → Shapes → Objects │               │ (Past → Future)     │
+   │  Example: Predict house price│         │  Example: Detect cats│              │ Example: Stock price │
+   │  Real: Kaggle House Prices   │         │  Real: ImageNet      │              │ Real: Bitcoin price  │
+   └──────────────────────────────┘         └────────────────────┘               └────────┬─────────────┘
+                                                                                               │
+                                  ┌────────────────────────────────────────────────────────────┼───────────────────────────────────────────────────────────┐
+                                  │                                                            │                                                           │
+                          ┌───────▼────────┐                                          ┌────────▼────────┐                                         ┌────────▼──────────┐
+                          │       RNN       │                                          │       LSTM        │                                         │        GRU          │
+                          │  Short memory   │                                          │ Long-term memory  │                                         │  Faster LSTM        │
+                          │  Vanishing grad │                                          │ Gates control     │                                         │  Fewer gates        │
+                          │ Example: Next word│                                        │ Example: Translate │                                         │ Example: Chatbot    │
+                          │ Real: Simple text │                                        │ Real: Google Translate│                                      │ Real: Facebook Bot │
+                          └───────┬────────┘                                          └────────┬────────┘                                         └────────┬──────────┘
+                                  │                                                            │                                                           │
+                                  └────────────────────────────────────────────────────────────┼───────────────────────────────────────────────────────────┘
+                                                                                               │
+                                                                                     ┌─────────▼─────────────┐
+                                                                                     │      ATTENTION         │
+                                                                                     │  Focus on important    │
+                                                                                     │  parts of sequence     │
+                                                                                     │ Example: “Paris → speaks French”│
+                                                                                     └─────────┬─────────────┘
+                                                                                               │
+                                                                                     ┌─────────▼─────────────┐
+                                                                                     │     TRANSFORMER        │
+                                                                                     │  Self-Attention only  │
+                                                                                     │  No recurrence        │
+                                                                                     │  Parallel training    │
+                                                                                     │ Example: GPT / BERT   │
+                                                                                     │ Real: ChatGPT, Google BERT│
+                                                                                     └─────────┬─────────────┘
+                                                                                               │
+                ┌──────────────────────────────────────────────────────────────────────────────┼───────────────────────────────────────────────────────────────────────────────┐
+                │                                                                              │                                                                               │
+     ┌──────────▼──────────┐                                                        ┌─────────▼──────────┐                                                            ┌──────────▼──────────┐
+     │     NLP / Text       │                                                        │   Time-Series       │                                                            │   Speech / Audio     │
+     │ Chatbots             │                                                        │ Forecasting         │                                                            │ Recognition          │
+     │ Translation          │                                                        │ Anomaly detection   │                                                            │                       │
+     │ Summarization        │                                                        │ Example: Predict energy│                                                          │ Example: Speech-to-text│
+     │ Example: Auto-summarize│                                                      │ Real: Electricity demand│                                                        │ Real: Siri, Alexa     │
+     │ Real: OpenAI GPT       │                                                       │                        │                                                            │                       │
+     └─────────────────────┘                                                        └─────────────────────┘                                                            └─────────────────────┘
+
+                                      ┌──────────────────────────────┐
+                                      │   Vision + Video Sequences    │
+                                      │   Action recognition         │
+                                      │   CNN + LSTM / Transformer   │
+                                      │ Example: Human activity       │
+                                      │ Real: Sports video analysis  │
+                                      └──────────────────────────────┘
+
+
+   ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+   │                                  SHARED BUILDING BLOCKS (Used Across Many Models)                                               │
+   │                                                                                                                                 │
+   │   • Embeddings           → convert words/items to vectors                                                                        │
+   │   • Positional Encoding  → add order info (important for Transformers)                                                           │
+   │   • Encoder–Decoder      → input → representation → output (seq2seq & Transformers)                                             │
+   │   • Activation Functions → ReLU, Sigmoid, Tanh                                                                                   │
+   └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+   ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+   │                               MODEL TRAINING & OPTIMIZATION (APPLIES TO ALL MODELS)                                             │
+   │                                                                                                                                 │
+   │   • Loss Function         → measures error                                                                                       │
+   │   • Optimizer             → updates weights (Adam, SGD)                                                                          │
+   │   • Learning Rate         → step size                                                                                             │
+   │   • Regularization        → Dropout, L2, Early stopping                                                                           │
+   │   • Batch Size / Epochs   → stability & speed                                                                                     │
+   │   • Weight Initialization → stable start                                                                                          │
+   │   • Normalization         → BatchNorm / LayerNorm                                                                                │
+   │   • Data Augmentation     → more data, better generalization                                                                      │
+   │   • Evaluation Metrics    → Accuracy, F1, RMSE                                                                                   │
+   └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+   
